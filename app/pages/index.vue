@@ -1,484 +1,173 @@
 <script setup lang="ts">
-//===============================-< deep articles >-===============================
-const deepArticles = [
-	{
-		label: "Strategic Planning and Collaboration",
-		content:
-			"We begin with collaborative strategic planning to understand your project's nuances and formulate a goal-aligned plan for success.",
-	},
-	{
-		label: "Iterative Development and Feedback Integration",
-		content:
-			"Through iterative development, we collaboratively build and refine solutions. Regular feedback check–ins ensure precision, guiding the project toward alignment with your vision.",
-	},
-	{
-		label: "Quality Finalization and Post-Support",
-		content:
-			"As completion nears, we ensure high-quality deliverables. Post-implementation, our commitment includes ongoing support and insights for continuous improvement.",
-	},
-	{
-		label: "Ongoing Improvement and Future Refinement",
-		content:
-			"After completion, we persistently refine our approach using gained insights, ensuring adaptability and excellence in future projects.",
-	},
-]
-//===============================-< handle scrool >-===============================
-//> functions
-const deepBar = ref<HTMLElement | null>()
-const deepImage = ref<HTMLElement | null>()
-const deepArticle = ref<HTMLElement | null>()
+import {
+  assets,
+  homeAboutFeatures,
+  homeAboutImages,
+  homeActivityCards,
+  site,
+} from "~/data/site"
 
-function handleScrool() {
-	if (deepBar.value) {
-		deepBar.value.scrollTop = window.scrollY
-	}
-}
+definePageMeta({ layout: "default" })
 
-//===============================-< on load >-===============================
-//> functions
-onMounted(() => {
-	window.addEventListener("scroll", handleScrool)
-})
-
-//===============================-< on unload >-===============================
-//> functions
-onUnmounted(() => {
-	window.removeEventListener("scroll", handleScrool)
+useSeoMeta({
+  title: "eSquare e.V. — Empowering Democracy",
+  description:
+    "A dynamic non-profit dedicated to fostering civic participation and democratic processes in Germany and globally.",
 })
 </script>
 
 <template>
-	<div class="">
-		<!-- hero -->
-		<section
-			class="hero min-h-screen bg-cover bg-center bg-no-repeat pt-40 pb-38"
-		>
-			<div class="container">
-				<div class="text-center flex flex-col items-center mx-auto max-w-212">
-					<!-- content -->
-					<div
-						class="flex items-center gap-4 border border-main/25 bg-main/10 rounded-full p-2 pr-6"
-					>
-						<!-- images -->
-						<div class="flex items-center">
-							<div class="w-8 h-8 rounded-full border-2 border-main-10">
-								<img
-									src="~/assets/images/png/Man.png"
-									alt="man"
-									class="rounded-full"
-								/>
-							</div>
-							<div
-								class="w-8 h-8 rounded-full border-2 border-main-10 relative -ml-2 overflow-hidden"
-							>
-								<img
-									src="~/assets/images/png/Woman.png"
-									alt="man"
-									class="rounded-full"
-								/>
-							</div>
-							<div
-								class="w-8 h-8 rounded-full border-2 border-main-10 relative -ml-2 overflow-hidden"
-							>
-								<img
-									src="~/assets/images/png/Man-1.png"
-									alt="man"
-									class="rounded-full"
-								/>
-							</div>
-						</div>
-						<!-- images -->
+  <div>
+    <!-- Hero -->
+    <section class="noise relative flex min-h-screen items-center overflow-hidden bg-bg pt-20">
+      <div
+        class="pointer-events-none absolute inset-0 opacity-20"
+        style="background-image: linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px); background-size: 60px 60px;"
+        aria-hidden="true"
+      />
+      <div class="pointer-events-none absolute top-1/4 left-1/3 size-96 rounded-full opacity-10 blur-3xl" style="background: radial-gradient(circle, #22c55e 0%, transparent 70%)" aria-hidden="true" />
+      <div class="pointer-events-none absolute bottom-1/3 right-1/4 size-64 rounded-full opacity-[0.08] blur-3xl" style="background: radial-gradient(circle, #16a34a 0%, transparent 70%)" aria-hidden="true" />
 
-						<div class="flex items-center gap-3">
-							<p class="font-medium leading-[1.4] text-main-light">
-								What Others Say About Us
-							</p>
-							<lazy-icons-arrow-right />
-						</div>
-					</div>
+      <div class="container relative z-10 w-full py-20">
+        <div class="grid items-center gap-16 lg:grid-cols-2">
+          <UiReveal>
+            <div class="badge mb-8">
+              <span class="badge-dot" />
+              Berlin, Germany · Founded {{ site.founded }}
+            </div>
+            <h1 class="font-display mb-6 text-5xl font-extrabold leading-[1.05] tracking-tight text-fg sm:text-6xl lg:text-7xl">
+              Empowering<br />
+              <span class="text-gradient">Democracy</span><br />
+              <span class="text-zinc-500">Through People</span>
+            </h1>
+            <p class="mb-10 max-w-lg text-lg leading-relaxed text-zinc-400">
+              A dynamic non-profit dedicated to fostering civic participation and democratic processes both in Germany and globally. Join our mission.
+            </p>
+            <div class="flex flex-wrap gap-4">
+              <a href="#activities" class="inline-flex items-center gap-2 rounded-xl bg-main px-6 py-3.5 text-sm font-semibold text-on-main transition-all hover:bg-main-hover active:scale-95">
+                Explore Projects
+                <svg class="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+              </a>
+              <a href="#about" class="inline-flex items-center gap-2 rounded-xl border border-white/15 px-6 py-3.5 text-sm font-medium text-fg transition-all hover:border-main/40 hover:bg-white/3">
+                Learn More
+              </a>
+            </div>
+            <div class="mt-14 flex gap-10 border-t border-white/8 pt-10">
+              <div><p class="stat-number">6+</p><p class="mt-1 text-sm text-zinc-500">Years Active</p></div>
+              <div class="w-px bg-white/8" />
+              <div><p class="stat-number">30+</p><p class="mt-1 text-sm text-zinc-500">Projects</p></div>
+              <div class="w-px bg-white/8" />
+              <div><p class="stat-number">15+</p><p class="mt-1 text-sm text-zinc-500">Countries</p></div>
+            </div>
+          </UiReveal>
 
-					<h1
-						class="mt-8 font-extrabold text-[104px] font-second-family text-white leading-none uppercase"
-					>
-						<span class="text-main">Grow Sales </span> With Our Strategy First
-						Approach
-					</h1>
-					<p class="font-medium text-xl leading-[1.4] text-gray-60">
-						Forge's sales and marketing solutions are strategically assigned
-						each month to adapt quickly and hit your goals.
-					</p>
+          <UiReveal :delay="2" class="hidden lg:block">
+            <div class="relative">
+              <div class="hero-img-wrap ml-auto aspect-4/5 max-w-sm overflow-hidden rounded-2xl">
+                <img :src="assets.heroBg" alt="eSquare team" class="relative z-10 size-full object-cover" />
+                <div class="absolute inset-0 z-20" style="background: linear-gradient(to top, rgba(10,10,10,0.6) 0%, transparent 50%)" aria-hidden="true" />
+              </div>
+              <div class="absolute top-16 -left-12 max-w-[180px] rounded-2xl border border-white/10 bg-zinc-900 p-4 shadow-2xl">
+                <p class="font-display text-2xl font-bold text-green-400">48+</p>
+                <p class="mt-0.5 text-xs leading-snug text-zinc-400">Youth exchange participants in 2024</p>
+              </div>
+              <div class="absolute -right-6 bottom-20 max-w-[160px] rounded-2xl border border-white/10 bg-zinc-900 p-4 shadow-2xl">
+                <div class="mb-2 flex gap-1">
+                  <span class="size-2 rounded-full bg-green-400" />
+                  <span class="size-2 rounded-full bg-green-400 opacity-60" />
+                  <span class="size-2 rounded-full bg-green-400 opacity-30" />
+                </div>
+                <p class="text-xs font-medium leading-snug text-fg">Non-formal education programs active now</p>
+              </div>
+            </div>
+          </UiReveal>
+        </div>
+      </div>
 
-					<div class="mt-10 flex items-center justify-center">
-						<base-button text="Book a Free Consultation" />
-					</div>
-					<!-- content -->
-				</div>
-			</div>
-		</section>
-		<!-- hero -->
+      <div class="absolute bottom-10 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-2 text-zinc-600">
+        <p class="text-xs tracking-widest uppercase">Scroll</p>
+        <div class="h-10 w-px bg-linear-to-b from-zinc-600 to-transparent" />
+      </div>
+    </section>
 
-		<!-- sales -->
-		<section class="sales pb-50">
-			<div class="container">
-				<!-- header -->
-				<div class="max-w-xl">
-					<h2
-						class="font-extrabold text-7xl leading-none uppercase text-white font-second-family"
-					>
-						Strategic <span class="text-main">Sales Growth</span> Catalyst
-					</h2>
-					<p class="text-xl leading-[1.4] text-gray-60">
-						By seamlessly integrating data-driven insights, market intelligence,
-						and a deep understanding of your business, we propel your sales to
-						new heights.
-					</p>
-				</div>
-				<!-- header -->
+    <!-- Activities -->
+    <section id="activities" class="relative bg-bg-elevated py-24 lg:py-32">
+      <div class="container">
+        <UiReveal class="mb-16">
+          <p class="project-tag mb-4">What We Do</p>
+          <div class="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
+            <h2 class="font-display max-w-lg text-4xl font-bold leading-tight text-fg lg:text-5xl">
+              Our Core <br /><span class="text-zinc-500">Activities</span>
+            </h2>
+            <p class="max-w-sm text-sm leading-relaxed text-zinc-400">
+              From local workshops to international exchanges, we build bridges between communities through education and dialogue.
+            </p>
+          </div>
+        </UiReveal>
 
-				<!-- content -->
-				<div class="mt-14">
-					<!-- banner -->
-					<div class="banner bg-main-light rounded-[28px] flex justify-between">
-						<!-- left -->
-						<div class="p-14 flex-1 max-w-1/2">
-							<div
-								class="rounded-full bg-main-dark p-6 inline-flex items-center justify-center"
-							>
-								<lazy-icons-rocket />
-							</div>
-							<h3
-								class="mt-12 uppercase font-extrabold font-second-family text-5xl leading-none text-main-dark"
-							>
-								Fueling Progress with a Strategic Foundation for Growth
-							</h3>
-							<p class="mt-5 font-medium text-lg text-black leading-[1.4]">
-								As a dynamic and forward-thinking powerhouse, we specialize in
-								meticulously crafting innovative strategies that transcend
-								conventional norms. Our commitment lies not only in meeting
-								immediate sales objectives but in strategically positioning
-								businesses for sustained success in the ever-evolving market
-								landscape.
-							</p>
-						</div>
+        <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          <UiReveal v-for="(card, i) in homeActivityCards" :key="card.number" :delay="(i as 0 | 1 | 2)">
+            <article
+              class="activity-card group flex min-h-[320px] flex-col justify-between rounded-2xl p-7"
+              :class="card.featured ? 'relative overflow-hidden border border-main/20' : 'border border-white/8 bg-zinc-900/60'"
+              :style="card.featured ? 'background: linear-gradient(135deg, #052e16 0%, #0a1f11 100%)' : undefined"
+            >
+              <div v-if="card.featured" class="pointer-events-none absolute top-0 right-0 size-48 opacity-20" style="background: radial-gradient(circle, #22c55e, transparent 70%)" aria-hidden="true" />
+              <div :class="card.featured ? 'relative z-10' : ''">
+                <span class="card-number font-display text-5xl font-extrabold transition-colors" :class="card.featured ? 'text-green-900/80' : 'text-zinc-700'">{{ card.number }}</span>
+                <div class="mt-5 mb-4 flex size-12 items-center justify-center rounded-xl" :class="card.featured ? 'bg-main/20' : ''" :style="!card.featured ? { background: 'rgba(34,197,94,0.12)' } : undefined">
+                  <svg v-if="card.number === '01'" class="size-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>
+                  <svg v-else-if="card.number === '02'" class="size-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                  <svg v-else class="size-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" /></svg>
+                </div>
+                <h3 class="font-display mb-3 text-xl font-bold text-fg">{{ card.title }}</h3>
+                <p class="text-sm leading-relaxed" :class="card.featured ? 'text-green-200/70' : 'text-zinc-400'">{{ card.description }}</p>
+              </div>
+              <NuxtLink :to="card.to" class="border-animate mt-6 inline-flex w-fit items-center gap-2 pb-0.5 text-sm font-semibold text-green-400" :class="card.featured ? 'relative z-10' : ''">
+                {{ card.cta }}
+                <svg class="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+              </NuxtLink>
+            </article>
+          </UiReveal>
+        </div>
+      </div>
+    </section>
 
-						<!-- image -->
-						<div class="flex-1 w-1/2 h-auto">
-							<img
-								src="~/assets/images/png/sales-1.png"
-								alt="sales banner"
-								class="w-full h-full"
-							/>
-						</div>
-					</div>
+    <!-- About -->
+    <section id="about" class="bg-bg py-24 lg:py-32">
+      <div class="container">
+        <div class="grid items-center gap-16 lg:grid-cols-2">
+          <UiReveal class="order-2 lg:order-1">
+            <div class="grid grid-cols-2 gap-4">
+              <img v-for="(src, i) in homeAboutImages" :key="src" :src="src" alt="eSquare activities" class="w-full rounded-2xl object-cover" :class="i === 1 ? 'mt-8 h-52' : i === 2 ? 'h-44' : i === 3 ? '-mt-8 h-44' : 'h-52'" />
+            </div>
+          </UiReveal>
+          <UiReveal :delay="1" class="order-1 lg:order-2">
+            <UiSectionHeading tag="About Us" title="A Non-Profit Built" accent="for Active Citizens" />
+            <p class="mb-6 leading-relaxed text-zinc-400">
+              Founded in {{ site.founded }} and based in Berlin, {{ site.name }} is dedicated to fostering civic participation and democratic processes across Germany and globally.
+            </p>
+            <p class="mb-10 leading-relaxed text-zinc-400">
+              Our projects span from local to international levels, using innovative methods that unite communities, promote mutual understanding, and build the civic infrastructure of tomorrow.
+            </p>
+            <div class="space-y-4">
+              <div v-for="feature in homeAboutFeatures" :key="feature" class="flex items-start gap-3">
+                <div class="mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full bg-main/20">
+                  <div class="size-2 rounded-full bg-green-400" />
+                </div>
+                <p class="text-sm text-zinc-300">{{ feature }}</p>
+              </div>
+            </div>
+            <NuxtLink to="/about" class="mt-10 inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-6 py-3.5 text-sm font-semibold text-fg transition-all hover:bg-white/10">
+              Full Story
+              <svg class="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+            </NuxtLink>
+          </UiReveal>
+        </div>
+      </div>
+    </section>
 
-					<!-- cards -->
-					<div class="mt-4 grid grid-cols-2 gap-4">
-						<!-- card 1 -->
-						<article class="bg-orange-light rounded-[28px]">
-							<img src="~/assets/images/png/sales-2.png" alt="sales card" />
-
-							<div class="p-14 pb-16">
-								<h3
-									class="uppercase font-extrabold font-second-family text-5xl leading-none text-orange-dark"
-								>
-									Illuminating Pathways for Business Triumphs
-								</h3>
-								<p
-									class="mt-4 font-medium text-lg text-black leading-[1.4] line-clamp-3"
-								>
-									We craft success through strategies integrating data-driven
-									insights and deep understanding of each client's unique
-									business landscape.
-								</p>
-							</div>
-						</article>
-						<article class="bg-yellow-light rounded-[28px]">
-							<div class="rounded-[28px] overflow-hidden">
-								<img src="~/assets/images/png/sales-3.png" alt="sales card" />
-							</div>
-
-							<div class="p-14 pb-16">
-								<h3
-									class="uppercase font-extrabold font-second-family text-5xl leading-none text-yellow-dark"
-								>
-									Illuminating Pathways for Business Triumphs
-								</h3>
-								<p
-									class="mt-4 font-medium text-lg text-black leading-[1.4] line-clamp-3"
-								>
-									We craft success through strategies integrating data-driven
-									insights and deep understanding of each client's unique
-									business landscape.
-								</p>
-							</div>
-						</article>
-					</div>
-				</div>
-
-				<!-- content -->
-			</div>
-		</section>
-		<!-- sales -->
-
-		<!-- solutions -->
-		<section class="solutions pb-50">
-			<div class="container">
-				<!-- header -->
-				<div class="max-w-xl mx-auto text-center">
-					<h2
-						class="font-extrabold text-7xl leading-none uppercase text-white font-second-family"
-					>
-						Innovative <span class="text-main">Solutions</span>Hub
-					</h2>
-					<p class="text-xl leading-[1.4] text-gray-60">
-						From strategic consulting to seamless execution, we're your partners
-						in unlocking unparalleled success. Elevate your business experience
-						with our dynamic services.
-					</p>
-				</div>
-				<!-- header -->
-
-				<!-- content -->
-				<div class="mt-14 grid grid-cols-3 gap-4">
-					<!-- card 1 -->
-					<div
-						class="pt-6 px-8 pb-12 bg-main-light rounded-[28px] text-center flex flex-col items-center"
-					>
-						<div class="flex items-center justify-center relative">
-							<span
-								class="inline-block w-50 h-50 rounded-full bg-main-hover absolute top-1/2 left-1/2 -translate-1/2"
-							></span>
-							<img
-								src="~/assets/images/png/solutions-1.png"
-								alt="solution 1"
-								class="w-full h-full relative"
-							/>
-						</div>
-
-						<h3
-							class="mt-8 text-main-dark font-second-family font-extrabold text-[40px] leading-none uppercase"
-						>
-							Strategic Insight Consulting
-						</h3>
-						<p class="mt-4 text-black text-lg font-medium leading-[1.4]">
-							Our seasoned experts analyze market trends, assess competition,
-							and delve into your business dynamics to provide actionable
-							insights.
-						</p>
-					</div>
-					<!-- card 2 -->
-					<div
-						class="pt-6 px-8 pb-12 bg-main-light rounded-[28px] text-center flex flex-col items-center"
-					>
-						<div class="flex items-center justify-center relative">
-							<span
-								class="inline-block w-50 h-50 rounded-full bg-main-hover absolute top-1/2 left-1/2 -translate-1/2"
-							></span>
-							<img
-								src="~/assets/images/png/solutions-2.png"
-								alt="solution 2"
-								class="w-full h-full relative"
-							/>
-						</div>
-
-						<h3
-							class="mt-8 text-main-dark font-second-family font-extrabold text-[40px] leading-none uppercase"
-						>
-							Dynamic Marketing Solutions
-						</h3>
-						<p class="mt-4 text-black text-lg font-medium leading-[1.4]">
-							We elevate your brand with engaging digital campaigns, tailored
-							content, and innovative strategies to boost engagement and
-							maximize reach.
-						</p>
-					</div>
-					<!-- card 3 -->
-					<div
-						class="pt-6 px-8 pb-12 bg-main-light rounded-[28px] text-center flex flex-col items-center"
-					>
-						<div class="flex items-center justify-center relative">
-							<span
-								class="inline-block w-50 h-50 rounded-full bg-main-hover absolute top-1/2 left-1/2 -translate-1/2"
-							></span>
-							<img
-								src="~/assets/images/png/solutions-3.png"
-								alt="solution 3"
-								class="w-full h-full relative"
-							/>
-						</div>
-
-						<h3
-							class="mt-8 text-main-dark font-second-family font-extrabold text-[40px] leading-none uppercase"
-						>
-							Agile Technology Integration
-						</h3>
-						<p class="mt-4 text-black text-lg font-medium leading-[1.4]">
-							Stay ahead with cutting-edge tech. From cloud solutions to
-							AI-driven automation, empowering your business in the digital
-							landscape.
-						</p>
-					</div>
-				</div>
-				<!-- content -->
-			</div>
-		</section>
-		<!-- solutions -->
-
-		<!-- deep -->
-		<section class="deep pb-50">
-			<div class="container">
-				<!-- header -->
-				<div class="max-w-160 mx-auto text-center">
-					<h2
-						class="font-extrabold text-7xl leading-none uppercase text-white font-second-family"
-					>
-						A Deep Dive into Our
-						<span class="text-main">Collaborative</span> Work Methodology
-					</h2>
-				</div>
-				<!-- header -->
-
-				<!-- content -->
-				<div class="mt-30 flex items-start gap-2">
-					<!-- left -->
-					<div class="flex-1">
-						<div class="flex gap-10 items-stretch">
-							<!-- line -->
-							<div class="bg-main-10 rounded-[28px] h-auto w-1 shrink-0 block">
-								<div
-									id="deepBar"
-									ref="deepBar"
-									class="w-full h-28 bg-main rounded-[28px]"
-								></div>
-							</div>
-
-							<!-- content -->
-							<!-- item 1 -->
-							<div>
-								<article
-									v-for="article in deepArticles"
-									:key="article.label"
-									class="not-first:mt-32"
-									ref="deepArticle"
-								>
-									<h3
-										class="mt-8 text-main font-second-family font-extrabold text-[40px] leading-none uppercase"
-									>
-										{{ article.label }}
-									</h3>
-									<p
-										class="mt-4 text-gray-60 text-lg font-medium leading-[1.4]"
-									>
-										{{ article.content }}
-									</p>
-								</article>
-							</div>
-						</div>
-					</div>
-
-					<!-- image -->
-					<div
-						class="flex-1 max-w-173 sticky top-30 flex items-center justify-center"
-						ref="deepImage"
-					>
-						<img
-							src="~/assets/images/png/deep.png"
-							alt="deep"
-							class="deepImage w-full h-full max-w-[384px] animate-spin"
-						/>
-					</div>
-				</div>
-				<!-- content -->
-			</div>
-		</section>
-		<!-- deep -->
-
-		<!-- empovering -->
-		<section class="empovering mb-50">
-			<div class="container">
-				<!-- content -->
-				<div class="bg-green-dark-1 rounded-[28px] pt-24 overflow-hidden">
-					<div class="max-w-150 mx-auto flex flex-col items-center text-center pb-24">
-						<div
-							class="inline-flex items-center gap-2 py-2 px-6 border border-main-dark bg-green-dark-2 rounded-full"
-						>
-							<lazy-icons-chat />
-
-							<div class="flex items-center gap-3">
-								<p class="font-medium leading-[1.4] text-main-hover">
-									Have Questions?
-								</p>
-								<lazy-icons-arrow-right :color="'#7fd136'" />
-							</div>
-						</div>
-
-						<!-- main -->
-						<div class="mt-5">
-							<h2
-								class="font-extrabold text-7xl leading-none uppercase text-white font-second-family"
-							>
-								Empowering <span class="text-main">Success</span> in Numbers
-							</h2>
-							<p class="mt-5 text-xl leading-[1.4] text-white">
-								We redefine collaboration, innovation, and success. From our
-								unwavering commitment to excellence to our dynamic approach that
-								adapts to your unique needs, discover why working with us is not
-								just a choice, it's a strategic investment in your unparalleled
-								success.
-							</p>
-
-							<base-button text="Get In Touch" custom-styles="mt-8" />
-						</div>
-						<!-- main -->
-					</div>
-
-					<!-- footer -->
-					<div
-						class="bg-green-dark-2 grid grid-cols-3 gap-4 rounded-[28px] p-20"
-					>
-						<div class="text-center">
-							<p
-								class="font-extrabold text-[112px] leading-none uppercase text-main font-second-family"
-							>
-								97%
-							</p>
-							<p class="mt-2 text-xl leading-[1.4] text-white">
-								Satisfaction rate
-							</p>
-						</div>
-						<div class="text-center">
-							<p
-								class="font-extrabold text-[112px] leading-none uppercase text-main font-second-family"
-							>
-								50+
-							</p>
-							<p class="mt-2 text-xl leading-[1.4] text-white">
-								Delivered projects
-							</p>
-						</div>
-						<div class="text-center">
-							<p
-								class="font-extrabold text-[112px] leading-none uppercase text-main font-second-family"
-							>
-								10
-							</p>
-							<p class="mt-2 text-xl leading-[1.4] text-white">
-								Years of experience
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-		<!-- empovering -->
-	</div>
+    <UiOpenCallsBanner />
+    <UiNewsletterSection />
+  </div>
 </template>
-<style>
-.hero {
-	background-image: url("~/assets/images/png/header-bg.png");
-}
-
-.deepImage {
-	animation-duration: 5s;
-}
-</style>

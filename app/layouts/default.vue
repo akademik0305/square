@@ -1,11 +1,9 @@
-<script lang="ts" setup></script>
 <template>
-	<div class="wrapper flex flex-col min-h-screen">
-		<UiNavbar />
-		<div class="flex-1">
-			<NuxtPage />
-		</div>
-		<UiFooter />
-	</div>
+  <div class="flex min-h-screen flex-col bg-bg text-fg antialiased">
+    <LayoutAppHeader />
+    <main class="flex-1">
+      <slot />
+    </main>
+    <LayoutAppFooter />
+  </div>
 </template>
-<style></style>

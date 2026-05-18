@@ -1,5 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import tailwindcss from "@tailwindcss/vite"
+
 export default defineNuxtConfig({
 	compatibilityDate: "2025-07-15",
 	devtools: { enabled: true },
@@ -13,27 +14,8 @@ export default defineNuxtConfig({
 
 	fonts: {
 		families: [
-			{
-				name: "Futura PT Cond Extra",
-				src: "/fonts/futura-cond/FuturaPTCond-ExtraBold.woff2",
-				weight: "800",
-				style: "normal",
-				preload: true,
-			},
-			{
-				name: "TT Travels",
-				src: "/fonts/tt_travels/TTTravels-Medium.woff2",
-				weight: "500",
-				style: "normal",
-				preload: true,
-			},
-			{
-				name: "TT Travels",
-				src: "/fonts/tt_travels/TTTravels-Bold.woff2",
-				weight: "700",
-				style: "normal",
-				preload: true,
-			},
+			{ name: "Syne", provider: "google", weights: [400, 500, 600, 700, 800] },
+			{ name: "DM Sans", provider: "google", weights: [300, 400, 500] },
 		],
 	},
 })
